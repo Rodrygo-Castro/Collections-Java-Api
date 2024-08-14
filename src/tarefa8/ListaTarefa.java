@@ -40,6 +40,7 @@ public class ListaTarefa {
         Set<Tarefa> tarefasConcluidas = new HashSet<>();
         for (Tarefa t : listaTarefas) {
             if (t.isConcluido()) {
+                System.out.println("Adicionado tarefa concluida: "+ t.getDescricao());
                 tarefasConcluidas.add(t);
             }
         }
@@ -50,6 +51,7 @@ public class ListaTarefa {
         Set<Tarefa> tarefasPendentes = new HashSet<>();
         for (Tarefa t : listaTarefas) {
             if (!t.isConcluido()) {
+                System.out.println("Adicionado tarefa pendente: "+ t.getDescricao());
                 tarefasPendentes.add(t);
             }
         }
@@ -60,6 +62,7 @@ public class ListaTarefa {
         for (Tarefa t : listaTarefas) {
             if (t.getDescricao().equalsIgnoreCase(descricao)) {
                 t.setConcluido(true);
+                System.out.println("Tarefa marcada como concluída: " + t.getDescricao());
                 break;
             }
         }
@@ -69,41 +72,66 @@ public class ListaTarefa {
         for (Tarefa t : listaTarefas) {
             if (t.getDescricao().equalsIgnoreCase(descricao)) {
                 t.setConcluido(false);
+                System.out.println("Tarefa marcada como pendente: " + t.getDescricao());
                 break;
             }
         }
     }
 
     public Set<Tarefa> removerListaTarefas() {
-        Set<Tarefa> removerTodasTarefas = new HashSet<>(listaTarefas);
+        Set<Tarefa> todasTarefas = new HashSet<>(listaTarefas);
         listaTarefas.clear();
-        return removerTodasTarefas;
+        return todasTarefas;
     }
 
     public static void main(String[] args) {
         ListaTarefa listaTarefa = new ListaTarefa();
-
+        // Adicionando tarefas
         listaTarefa.adicionarTarefa("Estudar Java");
         listaTarefa.adicionarTarefa("Estudar MySQL");
         listaTarefa.adicionarTarefa("Estudar Spring");
-
-        //listaTarefa.contarTarefas();
-        //listaTarefa.exibirTarefa();
-
-//        listaTarefa.marcarTarefaConcluida("Estudar Java");
-//        listaTarefa.marcarTarefaConcluida("Estudar MySQL");
-//        listaTarefa.marcarTarefaPendente("Estudar Spring");
-
         listaTarefa.adicionarTarefa("Estudar PostGreSQL");
-        listaTarefa.exibirTarefa();
-        //listaTarefa.contarTarefas();
 
-        listaTarefa.removerTarefa("Estudar PostGreSQL");
-//        listaTarefa.contarTarefas();
-//        listaTarefa.exibirTarefa();
-//        listaTarefa.obterTarefasConcluidas();
-//        listaTarefa.obterTarefasPendentes();
-        listaTarefa.removerListaTarefas();
+        System.out.println();
+
+        // Marcando algumas tarefas como concluídas
+        listaTarefa.marcarTarefaConcluida("Estudar Java");
+        listaTarefa.marcarTarefaConcluida("Estudar MySQL");
+
+        System.out.println();
+
+        // Obtendo e exibindo as tarefas concluídas depois de marcá-las como concluídas
+        Set<Tarefa> concluidas = listaTarefa.obterTarefasConcluidas();
+        System.out.println("Tarefas concluidas: " + concluidas);
+
+        System.out.println();
+
+        // Obtendo e exibindo as tarefas pendentes
+        Set<Tarefa> pendentes = listaTarefa.obterTarefasPendentes();
+        System.out.println("Tarefas pendentes: " + pendentes);
+
+        System.out.println();
+
+        // Marcando "Estudar MySQL" como pendente e atualizando a lista de pendentes
+        listaTarefa.marcarTarefaPendente("Estudar MySQL");
+        pendentes = listaTarefa.obterTarefasPendentes();
+        System.out.println("Tarefas pendentes: " + pendentes);
+
+        // Marcando "Estudar Spring" como concluída e atualizando a lista de concluídas
+        listaTarefa.marcarTarefaConcluida("Estudar Spring");
+        concluidas = listaTarefa.obterTarefasConcluidas();
+        System.out.println("Tarefas concluidas: " + concluidas);
+
+        System.out.println();
+
+        // Exibindo todas as tarefas
         listaTarefa.exibirTarefa();
+
+        System.out.println();
+
+        // Contando o total de tarefas
+        int contarTarefas = listaTarefa.contarTarefas();
+        System.out.println("Total de tarefas: " + contarTarefas);
+
     }
 }
