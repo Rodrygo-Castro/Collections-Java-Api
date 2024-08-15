@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class AgendaContatos {
 
-    private Map<String, Integer> agendaContato;
+    private final Map<String, Integer> agendaContato;
 
     public AgendaContatos() {
         this.agendaContato = new HashMap<>();
@@ -51,7 +51,5 @@ public class AgendaContatos {
 
 
         System.out.println("Pesquisa pelo nome Luiz Fernando: "+ agendaContatos.pesquisarPorNome("Luiz Fernando"));
-
-
     }
 }
