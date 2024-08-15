@@ -79,7 +79,7 @@ public class SomaNumeros {
         System.out.println("Maior numero da lista:"+ somaNumeros.encontrarMaiorNumero());
         System.out.println("Menor numero da lista:"+ somaNumeros.encontrarMenorNumero());
         System.out.println();
-        
+
         somaNumeros.exibirNumeros();
     }
 }
