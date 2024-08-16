@@ -41,14 +41,14 @@ public class ListaDeTarefas {
 
         System.out.println("O numero total da lista é "+ listaTarefa.obterNumeroTotalTarefas());
 
-        listaTarefa.adicionarTarefa("Tarefa 1");
-        listaTarefa.adicionarTarefa("Tarefa 2");
-        listaTarefa.adicionarTarefa("Tarefa 3");
-        System.out.println("O numero de tarefas adicionados são "+ listaTarefa.obterNumeroTotalTarefas());
-
-        listaTarefa.removerTarefa("Tarefa 1");
-        System.out.println("O numero de tarefas adicionados são "+ listaTarefa.obterNumeroTotalTarefas());
-
-        listaTarefa.obterDescricaoTarefas();
+//        listaTarefa.adicionarTarefa("Tarefa 1");
+//        listaTarefa.adicionarTarefa("Tarefa 2");
+//        listaTarefa.adicionarTarefa("Tarefa 3");
+//        System.out.println("O numero de tarefas adicionados são "+ listaTarefa.obterNumeroTotalTarefas());
+//
+//        listaTarefa.removerTarefa("Tarefa 1");
+//        System.out.println("O numero de tarefas adicionados são "+ listaTarefa.obterNumeroTotalTarefas());
+//
+//        listaTarefa.obterDescricaoTarefas();
     }
 }
